@@ -67,10 +67,20 @@ class App extends Component {
           <dl className="formatList">
             <dt>GeoTIFF</dt>
             <dd>Download in GeoTIFF format</dd>
+            {/* Georeferenced map image, including metadata such as coordinate system and bounds.
+              This format does not include a map legend. The legend is separately available.<br></br>
+              This format is suitable for composition of new map extents or partial presentation
+              (digital presentations, visualisations, etc).<br />
+              Geo data can also be downloaded from the <a href="https://data.linz.govt.nz">LINZ Data Service</a> which
+              offers better map viewing and custom cropping than
+              transforming the GeoTIFF image directly. */}
             <dt>TIFF</dt>
             <dd>Download in TIFF format</dd>
-            <dt>JPEG</dt>
-            <dd>Download in JPEG format</dd>
+            {/* <dd>
+              Full map including the legend. Map does not contain geo metadata
+              such as the bounds and coordinate system.<br></br>
+              This format can be used for printing and standalone presentation.
+            </dd> */}
           </dl>
         </React.Fragment>
       );
@@ -85,8 +95,6 @@ class App extends Component {
             <dd>Download in GeoTIFF format</dd>
             <dt>TIFF</dt>
             <dd>Download in TIFF format</dd>
-            <dt>JPEG</dt>
-            <dd>Download in JPEG format</dd>
           </dl>
         </React.Fragment>
       );

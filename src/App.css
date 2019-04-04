@@ -44,6 +44,10 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
+.formatList dt:last-of-type, .formatList dd:last-of-type {
+  border-bottom: 0;
+}
+
 .formatList dt {
   color: rgba(0, 0, 0, 0.87)
 }
