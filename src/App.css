@@ -2,32 +2,95 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.leaflet-container {
+  background-color: rgb(200, 226, 242) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mapData {
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.mapData h1 {
+  background:rgb(227, 76, 7);
+  color: rgba(255,255,255,0.92);
+  margin: 0;
+  padding: 2rem;
+  font-weight: 400;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mapData h1 small {
+  display: block;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+.formatList {
+  color: rgba(0, 0, 0, 0.54);
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.formatList dt, .formatList dd {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.formatList dt {
+  color: rgba(0, 0, 0, 0.87)
+}
+
+.formatList dd {
+  margin: 0;
+}
+
+.close {
+  top: 1.5rem;
+  position: absolute;
+  font-size: 2rem;
+  right: 0;
+  background: white;
+  transform: translateX(100%);
+  padding: 0 0.5rem;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+  background: rgba(255,255,255,0.9);
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  clip-path: inset(-10px -10px -10px 0px);
+}
+
+.close:hover {
+  color: black;
+}
+
+dialog {
+  z-index: 1500;
+  border: 0;
+  transform: translateY(-50%);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+  top: 50%;
+  width: 300px;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.25;
+  font-weight: 300;
+}
+
+.mapData footer {
+  padding: 20px 24px;
+  border-top: 1px solid #e6e6e6;
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: auto;
+}
+
+a, a:active, a:hover {
+  color: rgb(227, 76, 7);
+  text-decoration: none;
 }
