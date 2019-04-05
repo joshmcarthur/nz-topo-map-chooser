@@ -18,6 +18,15 @@ class App extends Component {
       .then(r => r.json())
       .then(data => this.setState({ topo250: data.vectorQuery.layers[50169].features[0] && data.vectorQuery.layers[50169].features[0].properties }));
   }
+  buildUrl(namespace, format, feature) {
+    const versionMatches = /^Edition ([\d.]+) .+/.exec(feature.edition);
+    const fileNamespace = namespace === "Topo250" ? "250-" : "";
+    let formatRef = format === "GeoTIFF" ? "GeoTif" : "TIFF";
+    if (namespace === "Topo250" && format === "GeoTIFF") formatRef += "f"; // Topo250 adjustment
+    const version = `v${versionMatches[1]}`.replace(".", "-");
+    const filename = `${fileNamespace}${feature.sheet_code}_${formatRef}${version}.tif`
+    return `http://topo.linz.govt.nz/${namespace}_raster_images/${format}${namespace}/${filename}`
+  }
   componentDidMount() {
     document.querySelector("#about").showModal();
     const topoTiles = tileLayer(
@@ -66,7 +75,7 @@ class App extends Component {
           <h1>Topo50 {topo50.sheet_code}<small>{topo50.sheet_name}</small></h1>
           <dl className="formatList">
             <dt>GeoTIFF</dt>
-            <dd>Download in GeoTIFF format</dd>
+            <dd><a href={this.buildUrl("Topo50", "GeoTIFF", topo50)}>Download in GeoTIFF format</a></dd>
             {/* Georeferenced map image, including metadata such as coordinate system and bounds.
               This format does not include a map legend. The legend is separately available.<br></br>
               This format is suitable for composition of new map extents or partial presentation
@@ -75,12 +84,19 @@ class App extends Component {
               offers better map viewing and custom cropping than
               transforming the GeoTIFF image directly. */}
             <dt>TIFF</dt>
-            <dd>Download in TIFF format</dd>
+            <dd><a href={this.buildUrl("Topo50", "TIFF", topo50)}>Download in TIFF format</a></dd>
             {/* <dd>
               Full map including the legend. Map does not contain geo metadata
               such as the bounds and coordinate system.<br></br>
               This format can be used for printing and standalone presentation.
             </dd> */}
+
+            <dt>Map Legend</dt>
+            <dd>
+              <a href="https://www.linz.govt.nz/topography/topo-maps/topo50/digital-images/topo50-important-info/topo50-legend.tif">Download TIFF</a>
+              <br />
+              Map legend common to all Topo50 maps.
+            </dd>
           </dl>
         </React.Fragment>
       );
@@ -92,9 +108,15 @@ class App extends Component {
           <h1>Topo250 {topo250.sheet_code}<small>{topo250.sheet_name}</small></h1>
           <dl className="formatList">
             <dt>GeoTIFF</dt>
-            <dd>Download in GeoTIFF format</dd>
+            <dd><a href={this.buildUrl("Topo250", "GeoTIFF", topo250)}>Download in GeoTIFF format</a></dd>
             <dt>TIFF</dt>
-            <dd>Download in TIFF format</dd>
+            <dd><a href={this.buildUrl("Topo250", "TIFF", topo250)}>Download in GeoTIFF format</a></dd>
+            <dt>Map Legend</dt>
+            <dd>
+              <a href="https://www.linz.govt.nz/topography/topo-maps/topo250/digital-images/topo250-important-info/topo250-legend.tif">Download TIFF</a>
+              <br />
+              Map legend common to all Topo50 maps.
+            </dd>
           </dl>
         </React.Fragment>
       );
