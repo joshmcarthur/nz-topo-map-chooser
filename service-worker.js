@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/nz-topo-map-chooser/precache-manifest.6433938b1f9a5803ba22031c15d6a58f.js"
+  "/nz-topo-map-chooser/precache-manifest.6bf97e9bcef67a4a12bb1b5cb200f28b.js"
 );
 
 workbox.clientsClaim();
