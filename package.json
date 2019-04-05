@@ -1,5 +1,6 @@
 {
   "name": "topomap-chooser",
+  "homepage": "https://www.joshmcarthur.com/nz-topo-map-chooser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
