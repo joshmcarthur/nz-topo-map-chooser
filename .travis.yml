@@ -1,6 +1,4 @@
-before_script:
-  - npm install -g yarn
-  - yarn install
+language: node_js
 script:
   - yarn build
 deploy:
