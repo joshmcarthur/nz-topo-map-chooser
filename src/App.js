@@ -30,7 +30,7 @@ class App extends Component {
     return `http://topo.linz.govt.nz/${namespace}_raster_images/${format}${namespace}/${filename}`
   }
   componentDidMount() {
-    document.querySelectorAll("dialog").forEach(dialogPolyfill.registerDialog);
+    document.querySelectorAll("dialog").forEach(el => dialogPolyfill.registerDialog(el));
     document.querySelector("#about").showModal();
     const topoTiles = tileLayer(
       'http://tiles-a.data-cdn.linz.govt.nz/services;key=2269dc5590604b2c8cedec1fe70a04cb/tiles/v4/layer=50767/EPSG:3857/{z}/{x}/{y}.png',
