@@ -110,7 +110,7 @@ class App extends Component {
             <dt>GeoTIFF</dt>
             <dd><a href={this.buildUrl("Topo250", "GeoTIFF", topo250)}>Download in GeoTIFF format</a></dd>
             <dt>TIFF</dt>
-            <dd><a href={this.buildUrl("Topo250", "TIFF", topo250)}>Download in GeoTIFF format</a></dd>
+            <dd><a href={this.buildUrl("Topo250", "TIFF", topo250)}>Download in TIFF format</a></dd>
             <dt>Map Legend</dt>
             <dd>
               <a href="https://www.linz.govt.nz/topography/topo-maps/topo250/digital-images/topo250-important-info/topo250-legend.tif">Download TIFF</a>
