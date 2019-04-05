@@ -14,7 +14,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -97,4 +98,17 @@ dialog {
 a, a:active, a:hover {
   color: rgb(227, 76, 7);
   text-decoration: none;
+}
+
+@media all and (max-width: 420px) {
+  .close {
+    transform: translateX(0);
+    clip-path: inset(-10px 0px -10px -10px);
+  }
+
+  .mapData {
+    width: 100%;
+    z-index: 1500;
+  }
+
 }
