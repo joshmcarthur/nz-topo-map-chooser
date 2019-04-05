@@ -76,7 +76,7 @@
   color: black;
 }
 
-dialog {
+#root dialog {
   z-index: 1500;
   border: 0;
   transform: translateY(-50%);

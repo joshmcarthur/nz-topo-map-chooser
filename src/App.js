@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { control, Map, tileLayer } from "leaflet";
+import L, { control, tileLayer } from "leaflet";
+import dialogPolyfill from 'dialog-polyfill'
 import "./App.css";
 import 'leaflet/dist/leaflet.css'
+import 'dialog-polyfill/dist/dialog-polyfill.css';
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +30,7 @@ class App extends Component {
     return `http://topo.linz.govt.nz/${namespace}_raster_images/${format}${namespace}/${filename}`
   }
   componentDidMount() {
+    document.querySelectorAll("dialog").forEach(dialogPolyfill.registerDialog);
     document.querySelector("#about").showModal();
     const topoTiles = tileLayer(
       'http://tiles-a.data-cdn.linz.govt.nz/services;key=2269dc5590604b2c8cedec1fe70a04cb/tiles/v4/layer=50767/EPSG:3857/{z}/{x}/{y}.png',
@@ -36,7 +39,7 @@ class App extends Component {
         maxZoom: 16,
         minZoom: 6
       });
-    this.map = new Map(this.mapRef, {
+    this.map = new L.Map(this.mapRef, {
       center: [-42, 172],
       zoom: 6,
       zoomControl: false,
